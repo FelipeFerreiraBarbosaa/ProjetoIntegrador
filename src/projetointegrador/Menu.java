@@ -76,8 +76,6 @@ public class Menu extends javax.swing.JFrame {
             CadastroProduto c = new CadastroProduto();
             desktopPane.add(c);        
             c.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DataBaseException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
