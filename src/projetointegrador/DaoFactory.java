@@ -1,5 +1,5 @@
 
-package projetointegrador.persistencia;
+package projetointegrador;
 
 
 

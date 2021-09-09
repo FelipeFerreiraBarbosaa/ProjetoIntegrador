@@ -1,5 +1,5 @@
 
-package projetointegrador.negocio;
+package projetointegrador;
 
 /**
  *

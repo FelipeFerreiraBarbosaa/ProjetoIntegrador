@@ -1,4 +1,4 @@
-package projetointegrador.persistencia;
+package projetointegrador;
 
 import java.io.BufferedReader;
 import java.io.IOException;

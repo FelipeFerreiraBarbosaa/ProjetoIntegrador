@@ -1,4 +1,4 @@
-package projetointegrador.negocio;
+package projetointegrador;
 
 import java.io.Serializable;
 import java.util.Objects;

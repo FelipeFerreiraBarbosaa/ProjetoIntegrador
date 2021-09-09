@@ -1,4 +1,4 @@
-package projetointegrador.apresentação;
+package projetointegrador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,8 @@ import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import projetointegrador.persistencia.DaoFactory;
-import projetointegrador.persistencia.DataBaseException;
 import projetointegrador.HibernateUtil;
-import projetointegrador.negocio.Produto;
-import projetointegrador.persistencia.ProdutoDAO;
+import projetointegrador.Produto;
 
 /**
  *

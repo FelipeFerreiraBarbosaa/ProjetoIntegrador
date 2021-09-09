@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetointegrador.persistencia;
+package projetointegrador;
 
 /**
  *
  * @author mouri
  */
-public class DataBaseException extends Exception
+public class DuplicateKeyException extends Exception 
 {
 
-    public DataBaseException(String message) 
+    public DuplicateKeyException() 
     {
-        super(message);
+        super("A chave primaria não pode ser duplicada");
     }
     
 }
