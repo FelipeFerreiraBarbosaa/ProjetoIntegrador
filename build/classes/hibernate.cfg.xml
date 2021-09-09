@@ -57,5 +57,12 @@ Contributor(s):
     <mapping class="projetointegrador.Principal"/>
     <mapping class="projetointegrador.Produto"/>
     <mapping class="projetointegrador.ProdutoTableModel"/>
+    <mapping class="projetointegrador.negocio.Produto"/>
+    <mapping class="projetointegrador.apresentação.CadastroProduto"/>
+    <mapping class="projetointegrador.apresentação.Menu"/>
+    <mapping class="projetointegrador.apresentação.ProdutoTableModel"/>
+    <mapping class="projetointegrador.persistencia.DataBaseConnectionManager"/>
+    <mapping class="projetointegrador.persistencia.DataBaseException"/>
+    <mapping class="projetointegrador.persistencia.ProdutoDAO"/>
   </session-factory>
 </hibernate-configuration>
