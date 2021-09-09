@@ -54,15 +54,9 @@ Contributor(s):
     <property name="hibernate.bytecode.use_reflection_optimizer">true</property>
     <mapping class="projetointegrador.CadastroProduto"/>
     <mapping class="projetointegrador.Menu"/>
-    <mapping class="projetointegrador.Principal"/>
-    <mapping class="projetointegrador.Produto"/>
     <mapping class="projetointegrador.ProdutoTableModel"/>
-    <mapping class="projetointegrador.negocio.Produto"/>
-    <mapping class="projetointegrador.apresentação.CadastroProduto"/>
-    <mapping class="projetointegrador.apresentação.Menu"/>
-    <mapping class="projetointegrador.apresentação.ProdutoTableModel"/>
-    <mapping class="projetointegrador.persistencia.DataBaseConnectionManager"/>
-    <mapping class="projetointegrador.persistencia.DataBaseException"/>
-    <mapping class="projetointegrador.persistencia.ProdutoDAO"/>
+    <mapping class="projetointegrador.DataBaseConnectionManager"/>
+    <mapping class="projetointegrador.DataBaseException"/>
+    <mapping class="projetointegrador.ProdutoDAO"/>
   </session-factory>
 </hibernate-configuration>
