@@ -1,6 +1,8 @@
 
 package projetointegrador;
 
+import projetointegrador.apresentação.Menu;
+
 /**
  *
  * @author Felipe Ferreira Barbosa
