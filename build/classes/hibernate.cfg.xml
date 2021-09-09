@@ -58,5 +58,6 @@ Contributor(s):
     <mapping class="projetointegrador.DataBaseConnectionManager"/>
     <mapping class="projetointegrador.DataBaseException"/>
     <mapping class="projetointegrador.ProdutoDAO"/>
+    <mapping class="projetointegrador.Produto"/>
   </session-factory>
 </hibernate-configuration>
