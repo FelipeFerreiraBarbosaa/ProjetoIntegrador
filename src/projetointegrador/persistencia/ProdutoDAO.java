@@ -1,11 +1,12 @@
-package projetointegrador;
+package projetointegrador.persistencia;
 
-import projetointegrador.DataBaseConnectionManager;
-import projetointegrador.DataBaseException;
-import projetointegrador.Produto;
+import projetointegrador.persistencia.DataBaseConnectionManager;
+import projetointegrador.persistencia.DataBaseException;
+import projetointegrador.negocio.Produto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import projetointegrador.negocio.Produto;
 
 
 

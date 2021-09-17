@@ -1,7 +1,7 @@
-package projetointegrador;
+package projetointegrador.apresentacao;
 
 
-import projetointegrador.Produto;
+import projetointegrador.negocio.Produto;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 

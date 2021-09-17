@@ -1,4 +1,4 @@
-package projetointegrador.negocio;
+package projetointegrador;
 
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;

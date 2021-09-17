@@ -1,5 +1,10 @@
 
-package projetointegrador;
+package projetointegrador.persistencia;
+
+import projetointegrador.persistencia.ProdutoDAO;
+import projetointegrador.persistencia.DataBaseException;
+
+
 
 
 

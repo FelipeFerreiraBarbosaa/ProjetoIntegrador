@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetointegrador;
+package projetointegrador.persistencia;
 
 /**
  *
- * @author Usuario
+ * @author mouri
  */
-public class DaoGenerico {
+public class DataBaseException extends Exception
+{
+
+    public DataBaseException(String message) 
+    {
+        super(message);
+    }
     
 }

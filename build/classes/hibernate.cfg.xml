@@ -48,16 +48,19 @@ Contributor(s):
     <property name="hibernate.connection.password">240297FE.</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
     <property name="hibernate.current_session_context_class">jta</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
     <property name="hibernate.bytecode.use_reflection_optimizer">true</property>
-    <mapping class="projetointegrador.CadastroProduto"/>
-    <mapping class="projetointegrador.Menu"/>
-    <mapping class="projetointegrador.ProdutoTableModel"/>
-    <mapping class="projetointegrador.DataBaseConnectionManager"/>
-    <mapping class="projetointegrador.DataBaseException"/>
-    <mapping class="projetointegrador.ProdutoDAO"/>
-    <mapping class="projetointegrador.Produto"/>
+    <mapping class="projetointegrador.apresentacao.CadastroProduto"/>
+    <mapping class="projetointegrador.apresentacao.Menu"/>
+    <mapping class="projetointegrador.apresentacao.ProdutoTableModel"/>
+    <mapping class="projetointegrador.negocio.Principal"/>
+    <mapping class="projetointegrador.negocio.Produto"/>
+    <mapping class="projetointegrador.persistencia.DaoFactory"/>
+    <mapping class="projetointegrador.persistencia.DataBaseConnectionManager"/>
+    <mapping class="projetointegrador.persistencia.DataBaseException"/>
+    <mapping class="projetointegrador.persistencia.DuplicateKeyException"/>
+    <mapping class="projetointegrador.persistencia.ProdutoDAO"/>
   </session-factory>
 </hibernate-configuration>

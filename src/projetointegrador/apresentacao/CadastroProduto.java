@@ -1,5 +1,8 @@
-package projetointegrador;
+package projetointegrador.apresentacao;
 
+
+import projetointegrador.persistencia.ProdutoDAO;
+import projetointegrador.persistencia.DataBaseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -8,8 +11,11 @@ import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import projetointegrador.persistencia.DaoFactory;
 import projetointegrador.HibernateUtil;
-import projetointegrador.Produto;
+import projetointegrador.HibernateUtil;
+import projetointegrador.negocio.Produto;
+import projetointegrador.apresentacao.ProdutoTableModel;
 
 /**
  *
@@ -18,13 +24,13 @@ import projetointegrador.Produto;
 public class CadastroProduto extends javax.swing.JInternalFrame {
 
     private Produto produto;
-    private ProdutoDAO produtoDAO = new ProdutoDAO();
-    private boolean novo;
+    //private ProdutoDAO produtoDAO = new ProdutoDAO();
+    //private boolean novo;
 
     public CadastroProduto() throws DataBaseException {
         initComponents();
         carregarGrade();
-        novo = false;
+        
 
     }
 
@@ -130,9 +136,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         btnNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNovo.setMargin(new java.awt.Insets(2, 8, 2, 8));
-        btnNovo.setMaximumSize(new java.awt.Dimension(45, 43));
-        btnNovo.setMinimumSize(new java.awt.Dimension(45, 43));
-        btnNovo.setPreferredSize(new java.awt.Dimension(45, 43));
+        btnNovo.setMaximumSize(new java.awt.Dimension(63, 43));
+        btnNovo.setMinimumSize(new java.awt.Dimension(63, 43));
+        btnNovo.setPreferredSize(new java.awt.Dimension(63, 43));
         btnNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,9 +154,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         btnSalvar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSalvar.setMargin(new java.awt.Insets(2, 8, 2, 8));
-        btnSalvar.setMaximumSize(new java.awt.Dimension(51, 43));
-        btnSalvar.setMinimumSize(new java.awt.Dimension(51, 43));
-        btnSalvar.setPreferredSize(new java.awt.Dimension(51, 43));
+        btnSalvar.setMaximumSize(new java.awt.Dimension(63, 43));
+        btnSalvar.setMinimumSize(new java.awt.Dimension(63, 43));
+        btnSalvar.setPreferredSize(new java.awt.Dimension(63, 43));
         btnSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,9 +172,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         btnExcluir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnExcluir.setMargin(new java.awt.Insets(2, 8, 2, 8));
-        btnExcluir.setMaximumSize(new java.awt.Dimension(51, 43));
-        btnExcluir.setMinimumSize(new java.awt.Dimension(51, 43));
-        btnExcluir.setPreferredSize(new java.awt.Dimension(51, 43));
+        btnExcluir.setMaximumSize(new java.awt.Dimension(63, 43));
+        btnExcluir.setMinimumSize(new java.awt.Dimension(63, 43));
+        btnExcluir.setPreferredSize(new java.awt.Dimension(63, 43));
         btnExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +256,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         produto = new Produto();
         habilitarFormulario(true);
         btnExcluir.setEnabled(false);
+        tfNome.setValue("");
+        tfPreçoCompra.setValue(new Double(0));
+        tfPreçoVenda.setValue(new Double(0));
+        sQTDE.setValue(0);
+        tfDescricao.setValue("");
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -266,13 +277,6 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
                     sessao = HibernateUtil.getSessionFactory().openSession();
                     Transaction transacao = sessao.beginTransaction();
-                    //Produto p = new Produto();
-                    //p.setId(null);
-                    //p.setName(tfNome.getText());
-                    //p.setpCusto((Double) tfPreçoCompra.getValue());
-                    //p.setpVenda((Double) tfPreçoVenda.getValue());
-                    //p.setQuantidade((int) sQTDE.getValue());
-                    //p.setDescricao(tfDescricao.getText());
                     sessao.save(produto);
                     transacao.commit();
                     JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
@@ -283,52 +287,45 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 }
             } else {
                 try {
-                    produtoDAO.edit(produto);
+                    sessao = HibernateUtil.getSessionFactory().openSession();
+                    Transaction transacao = sessao.beginTransaction();
+                    //produtoDAO.edit(produto);
+                    sessao.update(produto);
+                    transacao.commit();
+                    JOptionPane.showMessageDialog(null, "Produto alterado com Sucesso!");
                     atualizarTabela();
                     sessao.close();
-                    
+
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(this, "Erro ao alterar o produto.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-               
+
             }
-           atualizarTabela();
+            atualizarTabela();
         }
-                
-                
+
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        /*List resultado = null;
+
         Session sessao = null;
-        try {
-            sessao = HibernateUtil.getSessionFactory().openSession();
-            Transaction transacao = sessao.beginTransaction();
-            int id;
-            id = Integer.parseInt(JOptionPane.showInputDialog(null, "Código do produto a ser EXCLUÍDO:", "Excluir", JOptionPane.PLAIN_MESSAGE));
-            org.hibernate.Query query = sessao.createQuery("FROM produto WHERE id = " + id);
-            resultado = query.list();
-            for (Object obj : resultado) {
-                Produto p = (Produto) obj;
-                sessao.delete(p);
-                transacao.commit();
-                JOptionPane.showMessageDialog(null, "Cadastro excluído com sucesso!");
-            }
-        } catch (HibernateException hibEx) {
-            hibEx.printStackTrace();
-        }*/
         int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir o produto " + produto.getName() + "?");
         if (opcao == 0) {
-        try {
-            ProdutoDAO dao = new ProdutoDAO();
-            dao.delete(produto);
-            
-        } catch (DataBaseException ex) {
-            System.out.println(ex.getMessage());
-        }
+            try {
+                sessao = HibernateUtil.getSessionFactory().openSession();
+                Transaction transacao = sessao.beginTransaction();
+                //ProdutoDAO dao = new ProdutoDAO();
+                sessao.delete(produto);
+                transacao.commit();
+                JOptionPane.showMessageDialog(null, "Cadastro excluído com sucesso!");
+                //dao.delete(produto);
+            } catch (HibernateException hibEx) {
+                hibEx.printStackTrace();
+            }
+            atualizarTabela();
 
-        atualizarTabela();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -437,11 +434,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         Grade.revalidate();
         Grade.repaint();
     }
-   
 
-    
-    
-       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Grade;

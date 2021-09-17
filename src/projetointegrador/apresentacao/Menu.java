@@ -1,10 +1,11 @@
 
-package projetointegrador;
+package projetointegrador.apresentacao;
 
+import projetointegrador.persistencia.DataBaseException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import projetointegrador.CadastroProduto;
+import projetointegrador.apresentacao.CadastroProduto;
 
 
 public class Menu extends javax.swing.JFrame {
