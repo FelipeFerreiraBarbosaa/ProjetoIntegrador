@@ -1,5 +1,6 @@
 package projetointegrador.persistencia;
 
+import java.sql.PreparedStatement;
 import projetointegrador.persistencia.DataBaseConnectionManager;
 import projetointegrador.persistencia.DataBaseException;
 import projetointegrador.negocio.Produto;
@@ -15,7 +16,7 @@ public class ProdutoDAO
 
     private DataBaseConnectionManager conexao;
 
-    public ProdutoDAO() throws DataBaseException
+    public ProdutoDAO() 
     {
         try
         {
@@ -70,11 +71,11 @@ public class ProdutoDAO
         return x;
     }
     public void entradaEstoque (int Codigo, int Qtde) throws DataBaseException{
-        String sql ="update produto set quantidade=qtdeEstoque+'"+Qtde+"' where Id="+Codigo+";";
+        String sql ="update produto set qtdeEstoque=qtdeEstoque+'"+Qtde+"' where Codigo="+Codigo+";";
         conexao.runSQL(sql);
     }
     public void saidaEstoque (int Codigo, int Qtde) throws DataBaseException{
-        String sql ="update produto set quantidade=quantidade-'"+Qtde+"' where Id="+Codigo+";";
+        String sql ="update produto set qtdeEstoque=qtdeEstoque-'"+Qtde+"' where Codigo="+Codigo+";";
         conexao.runSQL(sql);
     }
     public Produto recuperar(int codigo) throws Exception {

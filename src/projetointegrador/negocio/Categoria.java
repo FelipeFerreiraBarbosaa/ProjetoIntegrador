@@ -3,7 +3,7 @@ package projetointegrador.negocio;
 
 /**
  *
- * @author Usuario
+ * @author Felipe Ferreira Barbosa
  */
 import java.io.Serializable;
 import javax.persistence.Column;

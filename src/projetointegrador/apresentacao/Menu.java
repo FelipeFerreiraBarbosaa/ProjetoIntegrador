@@ -20,7 +20,12 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
+        btnCadastroProduto = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuProduto = new javax.swing.JMenuItem();
+        jMenuSistema = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -36,36 +41,81 @@ public class Menu extends javax.swing.JFrame {
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Cadastro Produto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastroProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetointegrador/resources/images/produto.png"))); // NOI18N
+        btnCadastroProduto.setText("Cadastro Produto");
+        btnCadastroProduto.setBorderPainted(false);
+        btnCadastroProduto.setContentAreaFilled(false);
+        btnCadastroProduto.setDefaultCapable(false);
+        btnCadastroProduto.setFocusable(false);
+        btnCadastroProduto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCadastroProduto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCadastroProduto.setMaximumSize(new java.awt.Dimension(53, 41));
+        btnCadastroProduto.setMinimumSize(new java.awt.Dimension(63, 43));
+        btnCadastroProduto.setPreferredSize(new java.awt.Dimension(63, 43));
+        btnCadastroProduto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastroProdutoActionPerformed(evt);
             }
         });
+
+        jMenu1.setText("Cadastros");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuProduto.setText("Cadastro Produto");
+        jMenuProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuProdutoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuProduto);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenuSistema.setText("Sistema");
+        jMenuSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSistemaActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Sair do Sistema");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenuSistema.add(jMenuItem1);
+
+        jMenuBar1.add(jMenuSistema);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
+                .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(desktopPane)
                 .addContainerGap())
         );
@@ -74,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed
         try {
             CadastroProduto c = new CadastroProduto();
             desktopPane.add(c);        
@@ -82,11 +132,38 @@ public class Menu extends javax.swing.JFrame {
         } catch (DataBaseException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastroProdutoActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSistemaActionPerformed
+  
+    }//GEN-LAST:event_jMenuSistemaActionPerformed
+
+    private void jMenuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuProdutoActionPerformed
+        try {
+            CadastroProduto c = new CadastroProduto();
+            desktopPane.add(c);        
+            c.setVisible(true);
+        } catch (DataBaseException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuProdutoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastroProduto;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuProduto;
+    private javax.swing.JMenu jMenuSistema;
     // End of variables declaration//GEN-END:variables
 }
