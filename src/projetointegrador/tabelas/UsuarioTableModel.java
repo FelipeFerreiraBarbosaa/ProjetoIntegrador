@@ -1,16 +1,15 @@
-package projetointegrador.apresentacao;
+package projetointegrador.tabelas;
 
-
-import projetointegrador.negocio.Produto;
 import java.util.List;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.AbstractTableModel;
+import projetointegrador.negocio.Usuario;
 
-
-public class ProdutoTableModel extends AbstractTableModel {
-
-    private String colunas[] = {"Nome", "Preço de Compra", "Preço de Venda","Quantidade","Descrição"};
-    private List<Produto> dados;
-
+public class UsuarioTableModel extends AbstractTableModel {
+    
+    private String colunas[] = {"Usuário", "Nome", "E-mail"};
+    private List<Usuario> dados;    
+    
     @Override
     public int getRowCount() {
         if(dados == null){
@@ -26,18 +25,14 @@ public class ProdutoTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int l, int c) {
-        Produto produto = dados.get(l);
+        Usuario usuario = dados.get(l);
         switch (c) {
             case 0:
-                return produto.getName();
+                return usuario.getUsuario();
             case 1:
-                return produto.getpCusto();
+                return usuario.getNomeCompleto();
             case 2:
-                return produto.getpVenda();
-            case 3:
-                return produto.getQuantidade();
-            case 4:
-                return produto.getDescricao();
+                return usuario.getEmail();
             default:
                 throw new IndexOutOfBoundsException("Coluna inexistente!");
         }
@@ -53,12 +48,13 @@ public class ProdutoTableModel extends AbstractTableModel {
         return false;
     }
 
-    public void setDados(List<Produto> dados) {
+    public void setDados(List<Usuario> dados) {
         this.dados = dados;
         fireTableDataChanged();
     }
 
-    public Produto getRowValue(int l) {
+    public Usuario getRowValue(int l) {
         return dados.get(l);
     }
+    
 }

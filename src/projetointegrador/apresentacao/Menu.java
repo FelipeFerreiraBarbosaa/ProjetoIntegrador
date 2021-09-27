@@ -26,6 +26,9 @@ public class Menu extends javax.swing.JFrame {
         jMenuProduto = new javax.swing.JMenuItem();
         jMenuSistema = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuBotaoUsuarios = new javax.swing.JMenu();
+        jMenuCadUsu = new javax.swing.JMenuItem();
+        jMenuSetores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -41,7 +44,7 @@ public class Menu extends javax.swing.JFrame {
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 568, Short.MAX_VALUE)
         );
 
         btnCadastroProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetointegrador/resources/images/produto.png"))); // NOI18N
@@ -96,6 +99,31 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuSistema);
 
+        jMenuBotaoUsuarios.setText("Usuários");
+        jMenuBotaoUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuBotaoUsuariosActionPerformed(evt);
+            }
+        });
+
+        jMenuCadUsu.setText("Cadastro de Usuários");
+        jMenuCadUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadUsuActionPerformed(evt);
+            }
+        });
+        jMenuBotaoUsuarios.add(jMenuCadUsu);
+
+        jMenuSetores.setText("Cadastro de Setores");
+        jMenuSetores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSetoresActionPerformed(evt);
+            }
+        });
+        jMenuBotaoUsuarios.add(jMenuSetores);
+
+        jMenuBar1.add(jMenuBotaoUsuarios);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,7 +141,7 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addContainerGap()
                 .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(desktopPane)
@@ -156,14 +184,41 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuSetoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSetoresActionPerformed
+        try {
+            TelaCadastroCargo c = new TelaCadastroCargo();
+            desktopPane.add(c);        
+            c.setVisible(true);
+        } catch (DataBaseException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuSetoresActionPerformed
+
+    private void jMenuBotaoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBotaoUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuBotaoUsuariosActionPerformed
+
+    private void jMenuCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadUsuActionPerformed
+        try {
+            TelaCadastroUsuarios c = new TelaCadastroUsuarios();
+            desktopPane.add(c);        
+            c.setVisible(true);
+        } catch (DataBaseException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuCadUsuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroProduto;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuBotaoUsuarios;
+    private javax.swing.JMenuItem jMenuCadUsu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuProduto;
+    private javax.swing.JMenuItem jMenuSetores;
     private javax.swing.JMenu jMenuSistema;
     // End of variables declaration//GEN-END:variables
 }

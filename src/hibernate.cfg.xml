@@ -52,15 +52,34 @@ Contributor(s):
     <property name="hibernate.current_session_context_class">jta</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
     <property name="hibernate.bytecode.use_reflection_optimizer">true</property>
+    
+    <!--Classes de apresentação-->
     <mapping class="projetointegrador.apresentacao.CadastroProduto"/>
     <mapping class="projetointegrador.apresentacao.Menu"/>
-    <mapping class="projetointegrador.apresentacao.ProdutoTableModel"/>
+    <mapping class="projetointegrador.apresentacao.ProdutoTableModel"/>    
+    <mapping class="projetointegrador.apresentacao.TelaCadastroUsuarios"/>
+    <mapping class="projetointegrador.apresentacao.TelaCadastroCargo"/>
+    <mapping class="projetointegrador.apresentacao.TelaLogin"/>
+    
+    <!--Classes de negocio-->
+    <mapping class="projetointegrador.negocio.Usuario"/>
+    <mapping class="projetointegrador.negocio.ValidacaoCpf"/>
+    <mapping class="projetointegrador.negocio.Cargos"/>
     <mapping class="projetointegrador.negocio.Principal"/>
     <mapping class="projetointegrador.negocio.Produto"/>
+    <mapping class="projetointegrador.negocio.CriptografarSenha"/>    
+    
+    <!--Classes de persistencia-->
     <mapping class="projetointegrador.persistencia.DaoFactory"/>
     <mapping class="projetointegrador.persistencia.DataBaseConnectionManager"/>
     <mapping class="projetointegrador.persistencia.DataBaseException"/>
     <mapping class="projetointegrador.persistencia.DuplicateKeyException"/>
     <mapping class="projetointegrador.persistencia.ProdutoDAO"/>
+    <mapping class="projetointegrador.persistencia.DaoGenerico"/>
+    
+    <!--Classes de tabela-->
+    <mapping class="projetointegrador.tabelas.UsuarioTableModel"/>
+    
+    
   </session-factory>
 </hibernate-configuration>
