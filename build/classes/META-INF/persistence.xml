@@ -4,6 +4,7 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class> projetointegrador.negocio.Usuario</class>
     <class> projetointegrador.negocio.Cargos</class>
+    <class> projetointegrador.negocio.Logs</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Projeto"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

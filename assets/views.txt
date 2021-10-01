@@ -1,0 +1,17 @@
+CREATE VIEW vwProdutos AS
+SELECT
+id AS Código do Prdouto,
+descricao AS Produto,
+qnt AS Quantidade,
+VlUnitario AS Valor Unitário
+FROM Produtos
+WHERE VlUnitario > 499.00
+
+CREATE VIEW vwLogs_Info AS
+SELECT
+log_id AS "Código do Log",
+dated AS "Data do Log",
+logger AS Origem,
+message as Mensagem
+FROM logs
+WHERE level = 'INFO' and dated <= now()

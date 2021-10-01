@@ -34,5 +34,4 @@ public class ScriptAdmin {
             dao.create(usu);
         }
     }
-    
 }

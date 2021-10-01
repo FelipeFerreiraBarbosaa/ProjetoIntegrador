@@ -48,7 +48,7 @@ Contributor(s):
     <property name="hibernate.connection.password">240297FE.</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">validate</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.current_session_context_class">jta</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
     <property name="hibernate.bytecode.use_reflection_optimizer">true</property>
@@ -68,6 +68,7 @@ Contributor(s):
     <mapping class="projetointegrador.negocio.Principal"/>
     <mapping class="projetointegrador.negocio.Produto"/>
     <mapping class="projetointegrador.negocio.CriptografarSenha"/>    
+    <mapping class="projetointegrador.negocio.Logs"/>  
     
     <!--Classes de persistencia-->
     <mapping class="projetointegrador.persistencia.DaoFactory"/>

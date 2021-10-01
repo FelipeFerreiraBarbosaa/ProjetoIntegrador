@@ -35,6 +35,8 @@ import projetointegrador.tabelas.UsuarioTableModel;
  * @author enzob
  */
 public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
+    
+    static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(TelaLogin.class.getName());
 
     Calendar dataNascCalendar = Calendar.getInstance();
     
@@ -351,6 +353,7 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
             dataNascCalendar.set(ano, mes, dia, 00, 00, 00);
             jtfDataNasc.setBackground(Color.white);
             isDateOk = true;
+            log.info("Data digitada está de acordo");
 
         } catch (Exception Ex) {
 
@@ -359,6 +362,7 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
             jtfDataNasc.setBackground(color = new Color(255, 143, 112));
             JOptionPane.showMessageDialog(null, "A data digitada é inválida");
             isDateOk = false;
+            log.warn("Data digitada é inválida");
         }
     }//GEN-LAST:event_jtfDataNascFocusLost
 
@@ -379,11 +383,13 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
 
             jtfCpf.setBackground(color.white);
             isCpfOk = true;
+            log.info("CPF válido");            
 
         } catch (Exception ex) {
             jtfCpf.setBackground(color = new Color(255, 143, 112));
             JOptionPane.showMessageDialog(null, "O CPF digitado é inválido");
             isCpfOk = false;
+            log.warn("CPF inválido");
         }
 
     }//GEN-LAST:event_jtfCpfFocusLost
@@ -407,9 +413,11 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
                 sessao.save(login);
                 transacao.commit();
                 JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
+                log.info("Cadastro efetuado com sucesso, usuario: " + jtUsuario.getText());
                 
             } catch (HibernateException hibEx) {
                 hibEx.printStackTrace();
+                log.error("Erro no hibernate ao cadastrar usuário");
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(TelaCadastroUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedEncodingException ex) {
@@ -419,6 +427,7 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Algum campo está inválido");
+            log.error("Erro nos campos do cadastro");
         }
         
         try {
@@ -445,6 +454,7 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
             jpfConfSenha.setBackground(color = new Color(255, 143, 112));
             JOptionPane.showMessageDialog(null, "As senhas não coincidem");
             doesPasswordsMatch = false;
+            log.warn("Senhas digitadas não são iguais");
         }
 
     }//GEN-LAST:event_jpfConfSenhaFocusLost
@@ -459,13 +469,6 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
 
     private void tabelaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsuariosMouseClicked
         
-        /*if (evt.getClickCount() == 1) {
-            UsuarioTableModel tm = (UsuarioTableModel) tabelaUsuarios.getModel();
-            usuarioSelecionado = tm.getRowValue(tabelaUsuarios.getRowSorter().convertRowIndexToModel(tabelaUsuarios.getSelectedRow()));
-
-            System.out.println(usuarioSelecionado.getId() + "z");
-            
-        }*/
     }//GEN-LAST:event_tabelaUsuariosMouseClicked
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
@@ -474,8 +477,10 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
             DaoGenerico <Usuario> dao = new DaoGenerico <> ();
             dao.delete(Usuario.class, "FROM Usuario WHERE id=" + usuarioSelecionado.getId());
             carregarTabela();
+            log.info("Usuario deletado com sucesso: " + usuarioSelecionado.getUsuario());
         } catch (DataBaseException ex) {
             Logger.getLogger(TelaCadastroUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            log.error("Não foi possivel deletar o usuário: " + usuarioSelecionado.getUsuario());
         }
         
     }//GEN-LAST:event_btExcluirActionPerformed
@@ -512,6 +517,7 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
                 System.out.println(usuarioSelecionado.getId());
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

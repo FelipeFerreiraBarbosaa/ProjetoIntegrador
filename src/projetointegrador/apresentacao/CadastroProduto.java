@@ -22,6 +22,8 @@ import projetointegrador.apresentacao.ProdutoTableModel;
  * @author Felipe Ferreira
  */
 public class CadastroProduto extends javax.swing.JInternalFrame {
+    
+    static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(TelaLogin.class.getName());
 
     private Produto produto;
     //private ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -261,6 +263,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         tfPreçoVenda.setValue(new Double(0));
         sQTDE.setValue(0);
         tfDescricao.setValue("");
+        log.info("Botão novo pressionado");
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -281,8 +284,10 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                     transacao.commit();
                     JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
                     sessao.close();
+                    log.info("Cadastro efetuado com sucesso");
 
                 } catch (HibernateException hibEx) {
+                    log.error ("Erro ao cadastrar novo produto");
                     hibEx.printStackTrace();
                 }
             } else {
@@ -295,8 +300,10 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Produto alterado com Sucesso!");
                     atualizarTabela();
                     sessao.close();
+                    log.info("Produto alterado com sucesso");
 
                 } catch (Exception ex) {
+                    log.error("Erro ao alterar o produto de ID: " + produto.getId());
                     JOptionPane.showMessageDialog(this, "Erro ao alterar o produto.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -320,8 +327,10 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 sessao.delete(produto);
                 transacao.commit();
                 JOptionPane.showMessageDialog(null, "Cadastro excluído com sucesso!");
+                log.info("Cadastro exclúido com sucesso, ID: " + produto.getId());
                 //dao.delete(produto);
             } catch (HibernateException hibEx) {
+                log.error("Erro ao excluir cadastro de ID: " + produto.getId());
                 hibEx.printStackTrace();
             }
             atualizarTabela();
@@ -414,7 +423,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         ProdutoTableModel tm = (ProdutoTableModel) Grade.getModel();
         try {
             tm.setDados(produtoDAO.readAll());
+            log.info("Tabela carregada com sucesso");
         } catch (Exception ex) {
+            log.error("Erro ao carregar tabela");
             JOptionPane.showMessageDialog(this, "Erro ao carregar grade.\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -424,7 +435,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         try {
             ProdutoDAO dao = DaoFactory.newProdutoDAO();
             produtos = dao.readAll();
+            log.info("Tabela atualizada com sucesso");
         } catch (DataBaseException ex) {
+            log.error("Erro ao atualizar tabela");
             System.out.println(ex.getMessage());
         }
 

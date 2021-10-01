@@ -9,6 +9,8 @@ import projetointegrador.apresentacao.CadastroProduto;
 
 
 public class Menu extends javax.swing.JFrame {
+    
+    static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(TelaLogin.class.getName());
 
     public Menu() {
         initComponents();
@@ -154,10 +156,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed
         try {
+            log.info("Entrou no cadastro de produto");
             CadastroProduto c = new CadastroProduto();
             desktopPane.add(c);        
             c.setVisible(true);
         } catch (DataBaseException ex) {
+            log.error("Erro ao acessar cadastro de produto");
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnCadastroProdutoActionPerformed
@@ -172,24 +176,29 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuProdutoActionPerformed
         try {
+            log.info("Entrou no cadastro de produto");
             CadastroProduto c = new CadastroProduto();
             desktopPane.add(c);        
             c.setVisible(true);
         } catch (DataBaseException ex) {
+            log.error("Erro ao acessar cadastro de produto");
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuProdutoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        log.info("Fechou o sistema");
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuSetoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSetoresActionPerformed
         try {
+            log.info("Entrou no cadastro de setores");
             TelaCadastroCargo c = new TelaCadastroCargo();
             desktopPane.add(c);        
             c.setVisible(true);
         } catch (DataBaseException ex) {
+            log.error("Erro ao acessar cadastro de setores");
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuSetoresActionPerformed
@@ -200,10 +209,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadUsuActionPerformed
         try {
+            log.info("Entrou no cadastro de usuários");
             TelaCadastroUsuarios c = new TelaCadastroUsuarios();
             desktopPane.add(c);        
             c.setVisible(true);
         } catch (DataBaseException ex) {
+            log.error("Erro ao acessar cadastro de usuários");
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuCadUsuActionPerformed

@@ -12,10 +12,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.apache.log4j.PropertyConfigurator;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import projetointegrador.HibernateUtil;
 import projetointegrador.negocio.CriptografarSenha;
+import projetointegrador.negocio.Principal;
 import projetointegrador.negocio.Usuario;
 import projetointegrador.persistencia.DaoGenerico;
 
@@ -25,9 +27,8 @@ import projetointegrador.persistencia.DaoGenerico;
  */
 public class TelaLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaLogin
-     */
+    static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(TelaLogin.class.getName());
+    
     public TelaLogin() {
         initComponents();
     }
@@ -135,6 +136,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         CriptografarSenha cripto = new CriptografarSenha();
         boolean login = false;
+        String nome = "";
         
         try {
             String criptoSenha = cripto.cripto(jpfSenha.getText());
@@ -143,24 +145,28 @@ public class TelaLogin extends javax.swing.JFrame {
                 if (lista.get(i).getUsuario() != null && lista.get(i).getUsuario().equals(jtfUsuario.getText())) {
                     if (lista.get(i).getSenha().equals(criptoSenha)) {
                         login = true;
+                        nome = lista.get(i).getUsuario();
                     }
                 }
 
             }
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Problema na criptografia");
+            log.error("Problema na criptografia");
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Problema na criptografia");
         }
         
         if (login == true) {
+            org.apache.log4j.MDC.put("User_data", nome);
+            log.info("Login realizado com exito - usuario: " + nome);
             Menu tela = new Menu();
             tela.setVisible(true);
             setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha estão errados");
+            log.warn("Login falhou");
         }
         
         

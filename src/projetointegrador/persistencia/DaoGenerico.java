@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import projetointegrador.HibernateUtil;
 
+// Essa classe é o unico DAO necessário
+
 public class DaoGenerico <T> {
     
     public List<T> read (Object T, String sql) {
@@ -71,5 +73,18 @@ public class DaoGenerico <T> {
         } catch (HibernateException hibEx) {
             hibEx.printStackTrace();
         }
+    }
+    
+    public void insert(String sql) {
+        
+        try {
+            Session sessao = HibernateUtil.getSessionFactory().openSession();
+            org.hibernate.Query query = sessao.getNamedQuery(sql);
+            System.out.println("Inserido com sucesso");
+            
+        } catch (HibernateException hibEx) {
+            hibEx.printStackTrace();
+        }
+        
     }
 }
