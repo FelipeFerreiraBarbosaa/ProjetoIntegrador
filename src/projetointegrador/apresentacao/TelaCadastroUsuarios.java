@@ -666,7 +666,8 @@ public class TelaCadastroUsuarios extends javax.swing.JInternalFrame {
                     novo.setSenha(newSenha);
                 }
                 
-                dao.edit(novo, "FROM Usuario WHERE usuario='"+atual.getUsuario()+"'");
+                //dao.edit(novo, "FROM Usuario WHERE usuario='"+atual.getUsuario()+"'");
+                dao.editar(novo);
                 System.out.println("chegou // " + novo.getNomeCompleto());
                 carregarTabela();
             } catch (DataBaseException ex) {

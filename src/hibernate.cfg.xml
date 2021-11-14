@@ -80,6 +80,7 @@ Contributor(s):
     <mapping class="projetointegrador.negocio.CriptografarSenha"/>    
     <mapping class="projetointegrador.negocio.Logs"/>
     <mapping class="projetointegrador.negocio.CalendarFactory"/>  
+    <mapping class="projetointegrador.negocio.Meta"/>  
     
     <!--Classes de persistencia-->
     <mapping class="projetointegrador.persistencia.DataBaseException"/>

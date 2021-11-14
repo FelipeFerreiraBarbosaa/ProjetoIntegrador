@@ -23,7 +23,7 @@ public class CalendarFactory {
         }
         
         String mes = "";
-        if (calendar.get(Calendar.MONTH)+1 <= 9) {
+        if ((calendar.get(Calendar.MONTH)+1) <= 9) {
             mes = "0" + (calendar.get(Calendar.MONTH)+1);
         } else {
             mes = calendar.get(Calendar.MONTH) + "";

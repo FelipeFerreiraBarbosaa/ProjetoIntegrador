@@ -76,11 +76,14 @@ public class DaoGenerico <T> {
         }
     }
     
-    public void edit(Object T, String sql) {
+   /* public void edit(Object T, String sql) {
         
+        //Não está funcionando
+        //Não está funcionando
+    
         //Classe usada para editar um objeto
         //Exemplo de sql: FROM Usuario WHERE id = 1
-        
+    
         List resultado = null;
         Session sessao = null;
         try {
@@ -96,6 +99,27 @@ public class DaoGenerico <T> {
                 transacao.commit();
                 JOptionPane.showMessageDialog(null, "Cadastro editado com sucesso!");
             }
+                
+        } catch (HibernateException hibEx) {
+            hibEx.printStackTrace();
+        }
+    } */
+    
+    public void editar (Object T) {
+        
+        List resultado = null;
+        Session sessao = null;
+        
+        try {
+            
+            sessao = HibernateUtil.getSessionFactory().openSession();
+            Transaction transacao = sessao.beginTransaction();
+            
+            
+                sessao.update(T);
+                transacao.commit();
+                JOptionPane.showMessageDialog(null, "Cadastro editado com sucesso!");
+            
                 
         } catch (HibernateException hibEx) {
             hibEx.printStackTrace();

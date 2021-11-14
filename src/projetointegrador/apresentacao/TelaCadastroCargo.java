@@ -36,7 +36,7 @@ public class TelaCadastroCargo extends javax.swing.JInternalFrame {
         carregarTabela();
         setLayout(true, false, false, false, false);
         
-        int[] i = {1,2,3,4,5};
+        int[] i = {1,2,3};
         setComboBox(cbPerms, i);
     }
 

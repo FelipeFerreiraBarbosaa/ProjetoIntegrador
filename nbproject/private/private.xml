@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/apresentacao/TelaLogin.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/log4j.properties</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/negocio/Principal.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/apresentacao/TelaCadastroUsuarios.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/persistencia/DaoGenerico.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/apresentacao/Dashboards.java</file>
             <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/apresentacao/Menu.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/apresentacao/Estoque.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/persistencia/ProdutoDAO.java</file>
+            <file>file:/E:/Work/Univates/Engenharia%20de%20Software/2021B/Projeto%20Integrador%20I/ProjetoIntegrador/v2/src/projetointegrador/persistencia/CompraDAO.java</file>
         </group>
     </open-files>
 </project-private>
