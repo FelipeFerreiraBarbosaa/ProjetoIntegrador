@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListagemComprasPI" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b3ab68e-3bb4-4441-b1bd-ee023376bb8f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ProjetoIntegrador"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select *from compra]]>
+	</queryString>
+	<field name="idcompra" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="idcompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="idcompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="atualizacaocompra" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="atualizacaocompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="atualizacaocompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="criacaocompra" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="criacaocompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="criacaocompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="parcelascompra" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="parcelascompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="parcelascompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="valorcompra" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valorcompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="valorcompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="vencimentocompra" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="vencimentocompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="vencimentocompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<field name="fornecedorcompra" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="fornecedorcompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="fornecedorcompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="compra"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="16" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="49" uuid="4194a16f-37a8-4137-8c04-502771ad8df4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listagem de Compras]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="37bb8a34-1023-47b2-b5fd-b6b1f355695f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd3e1d05-5612-4d75-a39c-f74ad2971428"/>
+				</reportElement>
+				<text><![CDATA[idcompra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="20" uuid="db5c03b7-0381-4d99-89df-1cb2e4b48b0a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="723e42ba-dbdb-4d26-b734-8725dd38fa2b"/>
+				</reportElement>
+				<text><![CDATA[criacaocompra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="20" uuid="7ff9f6b2-36a2-4fcd-8acb-9f30f38bdec7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6540f531-4f47-4f20-b00f-d5f1345dd4cc"/>
+				</reportElement>
+				<text><![CDATA[valorcompra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="100" height="20" uuid="e1a77085-ef9e-4911-a923-3a7f1150447a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b5c7352-24c7-40f1-8c92-49e5cefbd962"/>
+				</reportElement>
+				<text><![CDATA[fornecedorcompra]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="60" height="20" uuid="76a46b50-b7e0-46b9-bc7b-759c4ab12f71">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd3e1d05-5612-4d75-a39c-f74ad2971428"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idcompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="71a00993-99ac-45b0-90e9-f89409b5edb9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="723e42ba-dbdb-4d26-b734-8725dd38fa2b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{criacaocompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="0" width="93" height="20" uuid="a92b4242-1945-496b-85c3-d0bd2416a96a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6540f531-4f47-4f20-b00f-d5f1345dd4cc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valorcompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="20" uuid="4c391831-22cc-412c-a8bb-186d78c4a02e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b5c7352-24c7-40f1-8c92-49e5cefbd962"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{fornecedorcompra}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

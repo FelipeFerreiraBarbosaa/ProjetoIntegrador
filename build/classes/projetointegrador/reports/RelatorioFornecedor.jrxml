@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioFornecedor" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c20baf24-0559-4046-a116-3d0610ddf09c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ProjetoIntegrador"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="nomeIni" class="java.lang.String"/>
+	<parameter name="nomeFinal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from fornecedor  where nomefornecedor  >= $P{nomeIni} and nomefornecedor <= $P{nomeFinal}]]>
+	</queryString>
+	<field name="idfornecedor" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="idfornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="idfornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="atualizacaofornecedor" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="atualizacaofornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="atualizacaofornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="criacaofornecedor" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="criacaofornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="criacaofornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="nomefornecedor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomefornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomefornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="contatofornecedor" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="contatofornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="contatofornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<field name="enderecofornecedor" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="enderecofornecedor"/>
+		<property name="com.jaspersoft.studio.field.label" value="enderecofornecedor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fornecedor"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="7" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="46" uuid="bee335b6-7716-4fd4-9e05-b15fce156179"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Fornecedores]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="20" uuid="432354ba-afef-4660-9640-037fefdeeab1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15fc537a-654a-45c6-9b25-7bc04e3bed9b"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Id ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="0" width="100" height="20" uuid="0330d7cf-3253-4ab3-a709-4521454aae20">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34d690af-3b02-48e4-ad83-cb2a03cc29d8"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="140" height="20" uuid="9744f270-b5b3-4d3e-8a7d-0e7e12b604be">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c20cccb5-b3c5-4acb-91cb-b48235f230f7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nome Fornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="125" height="20" uuid="d45807b4-374e-44cd-baa7-5a9ff3543097">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="acefc3ca-1109-431e-b38c-b995aa15fbb9"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Cadastro Efetuado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="20" uuid="94dfd62c-9376-43b4-a81f-10e21ac8d7a4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15fc537a-654a-45c6-9b25-7bc04e3bed9b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idfornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="100" height="20" uuid="f47df1a2-d253-4d70-81d6-541cc3ab6cbc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="34d690af-3b02-48e4-ad83-cb2a03cc29d8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="140" height="20" uuid="5994b31d-29d0-4273-8ca9-67454ba7806c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c20cccb5-b3c5-4acb-91cb-b48235f230f7"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nomefornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="0" width="110" height="20" uuid="8bf5d57d-7382-473d-9b7e-dba9032e9ef3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="acefc3ca-1109-431e-b38c-b995aa15fbb9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{criacaofornecedor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
